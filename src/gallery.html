@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <style>
+      body {
+        background-color: black;
+      }
+      .back {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        border-radius: 50%;
+        width: 4rem;
+      }
+      .center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .carousel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: visible;
+      }
+      .carousel img {
+        width: 80%;
+        height: auto;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 0.6s ease;
+      }
+      .carousel img.active {
+        transform: scale(2.0);
+      }
+    </style>
+  </head>
+  <body>
+    <button><a href="./index.html"><</a></button>
+    <div class="center">
+      <div class="carousel">
+        <img src="images/image1.jpg">
+        <img src="images/image2.jpg">
+        <img src="images/image3.jpg" class="active">
+        <img src="images/image4.jpg">
+        <img src="images/image5.jpg">
+      </div>
+    </div>
+  </body>
+</html>
