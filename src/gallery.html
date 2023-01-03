@@ -4,12 +4,32 @@
       body {
         background-color: black;
       }
-      .back {
-        position: absolute;
-        left: 20px;
-        top: 20px;
+      .back-button {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #fff;
         border-radius: 50%;
-        width: 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background-color: #000;
+        transition: background-color 0.2s ease;
+      }
+      .back-button:hover {
+        background-color: #333;
+      }
+      .back-button:active {
+        background-color: #ccc;
+      }
+      .back-button:before {
+        content: "";
+        width: 16px;
+        height: 16px;
+        border-left: 2px solid #fff;
+        border-top: 2px solid #fff;
+        transform: rotate(315deg);
+        display: inline-block;
       }
       .center {
         position: absolute;
@@ -36,13 +56,16 @@
     </style>
   </head>
   <body>
-    <button><a href="./index.html"><</a></button>
+    <button class="back-button">
+      <a href="./index.html">
+      </a>
+    </button>
     <div class="center">
       <div class="carousel">
-        <img src="images/image1.jpg">
         <img src="images/image2.jpg">
-        <img src="images/image3.jpg" class="active">
+        <img src="images/image3.jpg">
         <img src="images/image4.jpg">
+        <img src="images/image1.jpg" class="active">
         <img src="images/image5.jpg">
       </div>
     </div>
