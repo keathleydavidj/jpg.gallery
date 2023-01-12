@@ -1,14 +1,17 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JPEG GALLERY</title>
     <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
       body {
         background-color: black;
-      }
-      .center {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
       }
       .logo {
         position: absolute;
@@ -18,40 +21,45 @@
         width: 4rem;
         height: 4rem;
       }
-      input[type="text"] {
+      .center {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      input.search {
+        width: 260px;
         border-radius: 25px;
       }
       .loading-bar {
-        width: 100%;
-        height: 5px;
-        background-color: #000;
+        width: 130px;
+        height: 2px;
+        background: #cfcfcf;
+        margin-top: 22px;
         position: relative;
+        overflow: hidden;
         visibility: hidden;
       }
       .loading-bar.pending {
         visibility: visible;
       }
-      .loading-bar:before,
-      .loading-bar:after {
-        content: "";
-        width: 100%;
-        height: 10px;
+      .loading-bar::before {
+        content: '';
+        width: 68px;
+        height: 2px;
+        background: #0073b1;
         position: absolute;
-        top: 0;
-        left: 0;
-        background: linear-gradient(45deg, #fff 25%, transparent 25%, transparent 50%, #fff 50%, #fff 75%, transparent 75%, transparent);
-        background-size: 20px 20px;
-        animation: loading 2s linear infinite;
+        left: -34px;
+        animation: bluebar 1.5s infinite ease;
       }
-      .loading-bar:after {
-        background: linear-gradient(45deg, transparent 25%, #fff 25%, #fff 50%, transparent 50%, transparent 75%, #fff 75%, #fff);
-      }
-      @keyframes loading {
-        0% {
-          background-position: 0 0;
-        }
-        100% {
-          background-position: 20px 20px;
+      @keyframes bluebar {
+        50%{
+          left: 96px;
         }
       }
     </style>
@@ -59,7 +67,7 @@
   <body>
     <img src="images/logo.jpg" class="logo">
     <div class="center">
-      <input type="text" placeholder="Enter public address">
+      <input type="text" placeholder="Enter public address" class="search">
       <div class="loading-bar"></div>
     </div>
   </body>
